@@ -184,6 +184,22 @@ CRISPY_TEMPLATE_PACK = {% if cookiecutter.use_bootstrap == "y" %}"bootstrap5"{% 
 AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "pages:home"
 LOGOUT_REDIRECT_URL = "pages:home"
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': env('google_client_id'),
+            'secret': env('google_secret'),
+            'key': env('google_key')
+        }
+    }
+}
 
 SITE_ID = 1
 
