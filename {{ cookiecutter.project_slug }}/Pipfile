@@ -8,6 +8,11 @@ django = "*"
 django-extensions = "*"
 django-environ = "*"
 pillow = "*"
+djangorestframework = "*"
+django-allauth = "*"
+django-cors-headers = "*"
+django-filter = "*"
+django-redis = "*"
 {%- if cookiecutter.use_bootstrap == "y" %}
 crispy-bootstrap5 = "*"{% endif %}
 {%- if cookiecutter.use_tailwindcss == "y" %}

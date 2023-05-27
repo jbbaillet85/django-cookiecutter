@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     {%- if cookiecutter.use_bootstrap == "y" %}
     "crispy_forms",
     "crispy_bootstrap5",{% elif cookiecutter.use_bootstrap == "y" %}
@@ -70,7 +74,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            APPS_DIR / "templates",
+            BASE_DIR / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -180,6 +184,8 @@ CRISPY_TEMPLATE_PACK = {% if cookiecutter.use_bootstrap == "y" %}"bootstrap5"{% 
 AUTH_USER_MODEL = "users.User"
 LOGIN_REDIRECT_URL = "pages:home"
 LOGOUT_REDIRECT_URL = "pages:home"
+
+SITE_ID = 1
 
 {%- if cookiecutter.use_bootstrap == "y" %}
 
