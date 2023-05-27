@@ -1,0 +1,65 @@
+name: CI Django Postgres Pytest
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      postgres_user: postgres
+      postgres_password: postgres
+      postgres_host: localhost
+      postgres_db: postgres
+      postgres_port: 5432
+      django_secret_key: test_key_django
+    services:
+      postgres_main:
+        image: postgres:14
+        env:
+          POSTGRES_USER: ${{ env.postgres_user }}
+          POSTGRES_PASSWORD: ${{ env.postgres_password }}
+          POSTGRES_DB: ${{ env.postgres_db }}
+        ports:
+          - 5432:5432
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      
+      - name: Install requirements
+        run: |
+          pip install pipenv
+          pipenv install --dev
+      
+      - name: Lint with Flake8
+        run: |
+          pipenv run flake8
+      
+      - name: Migrate database
+        run: |
+          pipenv run python manage.py migrate
+      
+      - name: Collect static files
+        run: |
+          pipenv run python manage.py collectstatic --noinput
+      
+      - name: Run Tests
+        env:
+          DEBUG: "0"
+          DJANGO_SECRET_KEY: ${{ env.django_secret_key }}
+          DB_USERNAME: ${{ env.postgres_user }}
+          DB_PASSWORD: ${{ env.postgres_password }}
+          DB_HOST: ${{ env.postgres_host }}
+          DB_DATABASE: ${{ env.postgres_db }}
+          DB_PORT: ${{ env.postgres_port }}
+        run: |
+          pipenv run pytest
