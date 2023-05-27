@@ -15,7 +15,7 @@ from config import env
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 PROJECT_DIR = BASE_DIR / "config"
-APPS_DIR = BASE_DIR / "{{ cookiecutter.project_slug }}"
+APPS_DIR = BASE_DIR / "apps"
 
 
 # Quick-start development settings - unsuitable for production
@@ -36,8 +36,8 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 # Application definition
 
 INSTALLED_APPS = [
-    "{{ cookiecutter.project_slug }}.pages",
-    "{{ cookiecutter.project_slug }}.users",
+    "apps.pages",
+    "apps.users",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
