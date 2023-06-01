@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h3 class="mb-3">Ajouter <strong>{{ cookiecutter.app_name }}</strong></h3>
+  <div class="row">
+      <form method="post" action="{% url 'create{{ cookiecutter.app_name }}' %}">
+        {% csrf_token %}
+        <input type="hidden" name="isbn" value="{{ cookiecutter.app_name }}">
+        <input type="hidden" name="user_id" value="{{ request.user.id }}">
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

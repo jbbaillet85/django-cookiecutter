@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+  <h1>Supprimer le {{ cookiecutter.app_name }}</h1>
+  <p>Voulez-vous vraiment supprimer ce {{ cookiecutter.app_name }} ?</p>
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Oui, supprimer</button>
+    <a href="{% url 'home' %}" class="btn btn-default">Non, annuler</a>
+  </form>
+{% endblock %}

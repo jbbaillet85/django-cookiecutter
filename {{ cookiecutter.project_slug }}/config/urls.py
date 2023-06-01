@@ -6,14 +6,21 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views import defaults as default_views
 from django.conf.urls.static import static
+from django.views.generic import TemplateView, ListView
 from django.conf import settings
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path(
+        "",
+        TemplateView.as_view(template_name="pages/home.html"),
+        name="home",
+    ),
     path('accounts/', include('allauth.urls')),
-    path("", include("{{ cookiecutter.project_slug }}.pages.urls")),
+    path("pages", include("{{ cookiecutter.project_slug }}.pages.urls")),
     path("users/", include("{{ cookiecutter.project_slug }}.users.urls")),
+    path("{{ cookiecutter.app_name }}/", include("{{ cookiecutter.app_name }}.urls")),
 ]
 
 if settings.DEBUG:
