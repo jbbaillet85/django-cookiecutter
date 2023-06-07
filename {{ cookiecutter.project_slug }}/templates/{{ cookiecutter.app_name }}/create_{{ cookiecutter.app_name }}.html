@@ -9,7 +9,7 @@
         <input type="hidden" name="{{ cookiecutter.app_name }}" value="{{ cookiecutter.app_name }}">
         {% raw %}<input type="hidden" name="user_id" value="{{ request.user.id }}">{% endraw %}
         <div class="form-group">
-          {{ form.as_p }}
+          {% raw %}{{ form.as_p }}{% endraw %}
         </div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
       </form>
