@@ -1,6 +1,6 @@
 {% raw %}{% extends 'base.html' %}{% endraw %}
 
-{% block content %}
+{% raw %}{% block content %}{% endraw %}
   <div class="container">
     <h3 class="mb-3">Supprimer <strong>{{ cookiecutter.app_name }}</strong></h3>
     <div class="row">
@@ -12,4 +12,4 @@
       </form>
     </div>
   </div>
-{% endblock %}
+  {% raw %}{% endblock %}{% endraw %}

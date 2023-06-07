@@ -1,20 +1,20 @@
 {% raw %}{% extends 'base.html' %}{% endraw %}
 
-{% block content %}
+{% raw %}{% block content %}{% endraw %}
   <div class="container">
-    <h3 class="mb-3">Liste des {{ cookiecutter.app_name_plural }}</h3>
+    {% raw %}<h3 class="mb-3">Liste des {{ cookiecutter.app_name_plural }}</h3>{% endraw %}
     <div class="row">
-      {% for {{ cookiecutter.app_name_singular }} in object_list %}
+      {% raw %}{% for {{ cookiecutter.app_name_singular }} in object_list %}{% endraw %}
         <div class="card mb-3">
           <div class="card-body">
-            <h5 class="card-title">{{ {{ cookiecutter.app_name_singular }}.name }}</h5>
-            <p class="card-text">{{ {{ cookiecutter.app_name_singular }}.description }}</p>
+            {% raw %}<h5 class="card-title">{{ {{ cookiecutter.app_name_singular }}.name }}</h5>{% endraw %}
+            {% raw %}<p class="card-text">{{ {{ cookiecutter.app_name_singular }}.description }}</p>{% endraw %}
             <!-- Affichez d'autres attributs du modèle selon vos besoins -->
           </div>
         </div>
       {% empty %}
-        <p>Aucun {{ cookiecutter.app_name_singular }} trouvé.</p>
+      {% raw %}<p>Aucun {{ cookiecutter.app_name_singular }} trouvé.</p>{% endraw %}
       {% endfor %}
     </div>
   </div>
-{% endblock %}
+  {% raw %}{% endblock %}{% endraw %}

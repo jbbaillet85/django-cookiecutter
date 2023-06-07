@@ -1,12 +1,12 @@
 {% raw %}{% extends 'base.html' %}{% endraw %}
 
-{% block content %}
+{% raw %}{% block content %}{% endraw %}
   <div class="container">
-    <h3 class="mb-3">Détails de <strong>{{ cookiecutter.app_name }}</strong></h3>
+    {% raw %}<h3 class="mb-3">Détails de <strong>{{ cookiecutter.app_name }}</strong></h3>{% raw %}
     <div class="row">
-      <p>Nom : {{ object.name }}</p>
-      <p>Description : {{ object.description }}</p>
+      {% raw %}<p>Nom : {{ object.name }}</p>{% endraw %}
+      {% raw %}<p>Description : {{ object.description }}</p>{% endraw %}
       <!-- Affichez d'autres attributs du modèle selon vos besoins -->
     </div>
   </div>
-{% endblock %}
+  {% raw %}{% endblock %}{% endraw %}
