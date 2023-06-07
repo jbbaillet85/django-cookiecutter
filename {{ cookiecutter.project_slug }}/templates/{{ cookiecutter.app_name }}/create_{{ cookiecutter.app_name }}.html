@@ -7,7 +7,7 @@
       <form method="post">
         {% raw %}{% csrf_token %}{% endraw %}
         <input type="hidden" name="{{ cookiecutter.app_name }}" value="{{ cookiecutter.app_name }}">
-        <input type="hidden" name="user_id" value="{{ request.user.id }}">
+        {% raw %}<input type="hidden" name="user_id" value="{{ request.user.id }}">{% endraw %}
         <div class="form-group">
           {{ form.as_p }}
         </div>

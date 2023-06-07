@@ -6,7 +6,7 @@
     <div class="row">
       <p>Êtes-vous sûr de vouloir supprimer cet élément ?</p>
       <form method="post">
-        {{ csrf_token }}
+        {% raw %}{% csrf_token %}{% endraw %}
         <button type="submit" class="btn btn-danger">Supprimer</button>
         <a href="{% url '{{ cookiecutter.app_name }}_list' %}" class="btn btn-secondary">Annuler</a>
       </form>
