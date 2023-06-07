@@ -5,7 +5,7 @@
     <h3 class="mb-3">Modifier <strong>{{ cookiecutter.app_name }}</strong></h3>
     <div class="row">
       <form method="post">
-        {{ form.csrf_token }}
+        {% raw %}{% csrf_token %}{% endraw %}
         <div class="form-group">
           {{ form.as_p }}
         </div>
