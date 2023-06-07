@@ -12,7 +12,7 @@
             <!-- Affichez d'autres attributs du modèle selon vos besoins -->
           </div>
         </div>
-      {% empty %}
+        {% raw %}{% empty %}{% endraw %}
       {% raw %}<p>Aucun {{ cookiecutter.app_name_singular }} trouvé.</p>{% endraw %}
       {% endfor %}
     </div>
