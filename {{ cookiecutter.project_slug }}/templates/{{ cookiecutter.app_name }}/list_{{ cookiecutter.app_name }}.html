@@ -14,7 +14,7 @@
         </div>
         {% raw %}{% empty %}{% endraw %}
       {% raw %}<p>Aucun {{ cookiecutter.app_name_singular }} trouvé.</p>{% endraw %}
-      {% endfor %}
+      {% raw %}{% endfor %}{% endraw %}
     </div>
   </div>
   {% raw %}{% endblock %}{% endraw %}
