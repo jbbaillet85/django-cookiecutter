@@ -1,5 +1,7 @@
 from django.db import models
 from django_extensions.db.fields import AutoSlugField
+from django.utils.translation import gettext_lazy
+
 
 # Create your models here.
 class {{ cookiecutter.app_name.title() }}(models.Model):

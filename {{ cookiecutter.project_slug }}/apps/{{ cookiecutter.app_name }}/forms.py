@@ -1,8 +1,8 @@
-from models import {{ cookiecutter.app_name.title() }}
+from apps.{{ cookicutter.app_name }}.models import {{ cookiecutter.app_name.title() }}
 from django import forms
 
 
-class {{ cookiecutter.app_name }}Form(forms.ModelForm):
+class {{ cookiecutter.app_name.title() }}Form(forms.ModelForm):
 
     class Meta:
         model = {{ cookiecutter.app_name.title() }}
