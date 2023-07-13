@@ -2,7 +2,7 @@ from django.db import models
 from django_extensions.db.fields import AutoSlugField
 
 # Create your models here.
-class {{ cookiecutter.app_name }}(models.Model):
+class {{ cookiecutter.app_name.title() }}(models.Model):
     name = models.CharField(
         max_length=255, unique=True,
         verbose_name="{{ cookiecutter.app_name }}", default=""

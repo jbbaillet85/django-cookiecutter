@@ -34,18 +34,17 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 
 
 # Application definition
-
-INSTALLED_APPS = [
-    "apps.pages",
-    "apps.users",
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_extensions",
-    'django.contrib.sites',
+    'django.contrib.sites',]
+
+THIRD_PARTY_APPS = [
+    "django_extensions",                
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -56,7 +55,14 @@ INSTALLED_APPS = [
     "crispy_tailwind",{% endif %}
     {%- if cookiecutter.use_bootstrap == "y" or cookiecutter.use_tailwindcss == "y" %}
     'webpack_boilerplate',{% endif %}
+    ]
+
+LOCAL_APPS = [
+    "apps.pages",
+    "apps.users",
 ]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",

@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views import defaults as default_views
 from django.conf.urls.static import static
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView
 from django.conf import settings
 
 
