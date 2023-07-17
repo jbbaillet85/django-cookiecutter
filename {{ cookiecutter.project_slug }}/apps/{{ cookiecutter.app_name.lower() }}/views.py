@@ -1,5 +1,5 @@
-from apps.{{ cookicutter.app_name }}.models import {{ cookiecutter.app_name.title() }}
-from apps.{{ cookicutter.app_name }}.forms import {{ cookiecutter.app_name.title() }}Form
+from apps.{{ cookiecutter.app_name.lower() }}.models import {{ cookiecutter.app_name.title() }}
+from apps.{{ cookiecutter.app_name.lower() }}.forms import {{ cookiecutter.app_name.title() }}Form
 from django.views.generic import (CreateView, UpdateView,
                                   DeleteView, DetailView, ListView)
 

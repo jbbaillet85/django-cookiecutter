@@ -1,4 +1,4 @@
-from apps.{{ cookicutter.app_name }}.models import {{ cookiecutter.app_name.title() }}
+from apps.{{ cookiecutter.app_name.lower() }}.models import {{ cookiecutter.app_name.title() }}
 from django import forms
 
 
