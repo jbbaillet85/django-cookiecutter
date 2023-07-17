@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.{{ cookicutter.app_name }}.views import (
+from apps.{{ cookiecutter.app_name.lower() }}.views import (
     {{ cookiecutter.app_name.title() }}CreateView,
     {{ cookiecutter.app_name.title() }}UpdateView,
     {{ cookiecutter.app_name.title() }}DeleteView,
